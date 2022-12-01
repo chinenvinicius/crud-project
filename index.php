@@ -24,8 +24,34 @@ class Fruit {
 $fruitcontent = new Fruit('banana');
 
 
+class Counter {
 
+     public static int $count = 0;
 
+     private static int $conta = 20;
+
+     public function __construct(){
+          self::$count++;
+     }
+
+     function setNewCount(int $counter): int{
+       return  Counter::$count + $counter;
+     }
+
+     public static function getConta():int{
+          return  self::$conta;
+     }
+     
+}
+
+//static method
+print Counter::getConta() . PHP_EOL;
+$counting = new Counter();
+// for ($i = 0; $i < 10; $i++) {
+//      $connection = new Counter();
+//      echo Counter::$count . PHP_EOL;
+//  }
+ 
 class Fruits {
 	public string $game;
 	public array $color;
@@ -53,8 +79,42 @@ class Fruits {
      function gametype():string{
 		return 'game is ' . $this->protectedProperty ;
 	}
+     public function setRating(int|float $rating):void{
+          $rating  = max(0,$rating);
+          $this->rating =min(5, $rating);
+     }
+     public function getRating(): int|float{
+      return $this->rating;
+     }
 }
 
 $gametypo = new Fruits('GTA', ['work', 'gameblue']);
 
-var_dump($gametypo->getGameColor());
+
+//const doesnt use $ symbol before.
+//const values cannot be changed;
+
+class Http {
+     public const NOT_FOUND = 404;
+     public const OK = 200;
+     public const CREATED = 201;
+}
+
+print Http::NOT_FOUND;
+
+
+// you cant instantiate abstract class
+abstract class Book {
+     public $title;
+
+     public function __construct(string $title){
+          $this->title = $title;
+     }
+
+     public function getTitle():string{
+       return $this->title;
+     }
+}
+
+$bookex = new Book("work");
+print $bookex->getTitle(). PHP_EOL;
