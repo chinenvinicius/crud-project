@@ -119,4 +119,4 @@ abstract class Book {
 $bookex = new Book("work");
 print $bookex->getTitle(). PHP_EOL;
 
-// what is abstract class ?
+// what is abstract class ?b   
