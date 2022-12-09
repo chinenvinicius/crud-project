@@ -2,16 +2,24 @@
 include "db.php";
 
 function CreateData(){
+     
      global $connection;
      $username = $_POST['username'];
      $password = $_POST['password'];
+
+     $username = mysqli_real_escape_string($connection,$username);
+     $password = mysqli_real_escape_string($connection,$password);
  
+     $hashformat = "$2y$10$";
+     $salt =  "iusesomecrazystrings22";
+     $hashf_and_salt = $hashformat . $salt;
+
+     $password = crypt($password, $hashf_and_salt);
+     
      if($username && $password){
        $query = "INSERT INTO users(username, password)";
        $query .= "VALUES ('$username', '$password')";
-     
-         $result = mysqli_query($connection, $query);
-
+       $result = mysqli_query($connection, $query);
      }else{
           echo "not working";
      }
@@ -34,7 +42,7 @@ function showAllData(){
           echo "<option value='$id'>$id</option>";
      }
      
-
+  
  }
 
 
