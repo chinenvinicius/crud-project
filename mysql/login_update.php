@@ -6,6 +6,9 @@
       updateData();
       
  }
+      
+ session_start();
+ echo $_SESSION['content'];
 ?>
 <?php include "header.php";?>
 <div class="container">

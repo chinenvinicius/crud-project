@@ -23,7 +23,8 @@
 
          
      
-
+  session_start();
+  $_SESSION['content'] = "content";
 ?>
 <?php include "header.php";?>
 <div class="container">
