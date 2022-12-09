@@ -1,6 +1,7 @@
 <?php
      include "db.php";
      include "functions.php";
+
 if(isset($_POST['submit'])){
  createData();     
 }

@@ -1,15 +1,27 @@
 <?php
-     
+               $name = "vininly";
+               $value = 100;
+               $expiration = time() + (60*60*24*7);
+               setcookie($name,$value,$expiration);
+
+
+          if(isset($_COOKIE['vininly'])){
+            $someone = $_COOKIE['vininly'];
+            echo $someone;
+          }else{
+            $someone = "";
+          }
    
-            include "db.php";
+         include "db.php";
          
           $query = "SELECT * FROM users";
      
-         $result = mysqli_query($connection, $query);
-         
-  
-   
+          $result = mysqli_query($connection, $query);
+          
 
+          $value = 'something from somewhere';
+
+         
      
 
 ?>
