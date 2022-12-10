@@ -2,13 +2,15 @@
  include "db.php";
  include "functions.php";?>
 <?php
+
+ 
  if(isset($_POST['submit'])){
       updateData();
       
  }
-      
  session_start();
- echo $_SESSION['content'];
+ echo $_SESSION['at']; 
+
 ?>
 <?php include "header.php";?>
 <div class="container">

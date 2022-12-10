@@ -1,4 +1,8 @@
 <?php
+      session_start();
+      $_SESSION['at'] = "conteudo";
+     
+
                $name = "vininly";
                $value = 100;
                $expiration = time() + (60*60*24*7);
@@ -21,10 +25,20 @@
 
           $value = 'something from somewhere';
 
-         
-     
-  session_start();
-  $_SESSION['content'] = "content";
+    
+          class Content {
+
+            function SetPage(){
+              echo "page";
+            }
+          }
+          if(class_exists("Content")){
+            echo "yeeey";
+          }
+          if(method_exists("Content","SetPage")){
+            echo "it does";
+          }
+
 ?>
 <?php include "header.php";?>
 <div class="container">
