@@ -2,6 +2,18 @@
       session_start();
       $_SESSION['at'] = "conteudo";
      
+      $newfile = "example.txt";
+      if($handle = fopen($newfile,'r')){
+        
+        $res = fread($handle, filesize($newfile));
+        echo $res;
+        fclose($handle);
+      }else{
+        echo "work example";
+      }
++
+      // unlink("game.txt");
+
 
                $name = "vininly";
                $value = 100;
